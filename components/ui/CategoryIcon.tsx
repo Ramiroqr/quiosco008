@@ -1,15 +1,21 @@
+"use client"
+
 import { Category } from "@prisma/client"
 import  Link from "next/link" 
 import Image from "next/image"
+import { useParams } from "next/navigation"
 
 type CategoryIcomProps = {
     category: Category
 }
 
 export default function CategoryIcon({category}: CategoryIcomProps) {
+    const params = useParams<{category: string}>()
+
   return (
-    <div 
-        className={` flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b`}
+    <Link 
+        className={`${category.slug === params.category ? 'bg-amber-500' : ""} flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b`}
+        href={`/order/${category.slug}`}
     >
         <div className="w-16 h-16 relative">
             <Image 
@@ -19,12 +25,11 @@ export default function CategoryIcon({category}: CategoryIcomProps) {
             />
         </div>
 
-        <Link 
+        <p 
             className="text-xl font-bold"
-            href={`/order/${category.slug}`}    
         >
             {category.name}
-        </Link>
-    </div>
+        </p>
+    </Link>
   )
 }
