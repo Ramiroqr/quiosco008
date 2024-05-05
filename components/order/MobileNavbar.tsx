@@ -46,29 +46,32 @@ const MobileNavbar = ({categories}: MobileNavbarProps) => {
 
                     <div className="flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto">
                         <SheetClose asChild>
-                            <section className="flex h-full flex-col gap-6 pt-16 text-white">
+                            <section className="flex h-full flex-col gap-4  pt-10 text-white">
                                 {categories.map(category => {
                                     return (
-                                        <Link 
-                                            className={`${category.slug === params.category ? 'bg-amber-500' : ""} flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b`}
-                                            href={`/order/${category.slug}`}
-                                        >
-                                            <div className="w-16 h-16 relative">
-                                                <Image 
-                                                    fill
-                                                    src={` /icon_${category.slug}.svg`}
-                                                    alt="Imagen Categoria"
-                                                />
-                                            </div>
-                                    
-                                            <p 
-                                                className="text-xl font-bold"
+                                        <SheetClose asChild key={category.id}>
+                                            <Link 
+                                                className={`${category.slug === params.category ? 'bg-amber-500' : ""} flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b`}
+                                                href={`/order/${category.slug}`}
                                             >
-                                                {category.name}
-                                            </p>
-                                        </Link>
+                                                <div className="w-12 h-12 relative">
+                                                    <Image 
+                                                        fill
+                                                        src={` /icon_${category.slug}.svg`}
+                                                        alt="Imagen Categoria"
+                                                    />
+                                                </div>
+                                        
+                                                <p 
+                                                    className="text-lg font-semibold"
+                                                >
+                                                    {category.name}
+                                                </p>
+                                            </Link>
+                                        </SheetClose>
                                       )
                                 })}
+
                             </section>
                         </SheetClose>
                     </div>

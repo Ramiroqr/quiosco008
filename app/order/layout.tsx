@@ -12,10 +12,10 @@ export default function RootLayout({children}: Readonly<{
                     
                     <OrderNavbar />
 
-                <div className="md:flex">
+                <div className="sm:flex">
                     <OrderSidebar />
 
-                    <main className="md:flex-1 md:h-screen md:overflow-y-scroll p-5">
+                    <main className="sm:flex-1 sm:h-screen sm:overflow-y-scroll p-5">
                         {children}
                     </main>
 

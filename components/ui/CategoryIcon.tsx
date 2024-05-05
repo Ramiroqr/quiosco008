@@ -17,7 +17,7 @@ export default function CategoryIcon({category}: CategoryIcomProps) {
         className={`${category.slug === params.category ? 'bg-amber-500' : ""} flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b`}
         href={`/order/${category.slug}`}
     >
-        <div className="w-16 h-16 relative">
+        <div className=" max-xl:w-10 max-xl:h-10 w-16 h-16 relative">
             <Image 
                 fill
                 src={` /icon_${category.slug}.svg`}
@@ -26,7 +26,7 @@ export default function CategoryIcon({category}: CategoryIcomProps) {
         </div>
 
         <p 
-            className="text-xl font-bold"
+            className="xl:text-xl font-bold max-md:hidden"
         >
             {category.name}
         </p>
