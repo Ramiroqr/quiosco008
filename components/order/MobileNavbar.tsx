@@ -51,7 +51,7 @@ const MobileNavbar = ({categories}: MobileNavbarProps) => {
                                     return (
                                         <SheetClose asChild key={category.id}>
                                             <Link 
-                                                className={`${category.slug === params.category ? 'bg-amber-500' : ""} flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b`}
+                                                className={`${category.slug === params.category ? 'bg-amber-500' : ""} flex items-center gap-4 w-full max-w-60 border-t border-gray-200 p-3 last-of-type:border-b`}
                                                 href={`/order/${category.slug}`}
                                             >
                                                 <div className="w-12 h-12 relative">
