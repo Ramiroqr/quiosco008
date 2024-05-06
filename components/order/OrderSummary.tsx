@@ -1,11 +1,13 @@
 "use client"
 
 import { useStore } from '@/src/store'
-import React from 'react'
+import { useMemo } from 'react'
 import ProductDetails from './ProductDetails'
+import { formatCurrency } from '@/src/utils'
 
 export default function OrderSummary() {
   const order = useStore((state) => state.order)
+  const total = useMemo(() => order.reduce((total, item) => total + item.subtotal, 0), [order])
 
   return (
     <aside className='sm:h-screen sm:overflow-y-scroll sm:w-64 xl:w-96 p-5'>
@@ -21,6 +23,11 @@ export default function OrderSummary() {
                   item={item}
                 />
               ))}
+
+              <p className='text-2xl mt-16 text-center'>
+                  Total a pagar: {''}
+                  <span className='font-bold'>{formatCurrency(total)}</span>
+              </p>
             </div>
           )
         }
