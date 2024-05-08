@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import MobileNavbar from "./MobileNavbar";
 import { prisma } from "@/src/lib/prisma";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 
 export default async function OrderNavbar() {
 
@@ -23,9 +24,15 @@ export default async function OrderNavbar() {
           />
         </Link>
 
-        <MobileNavbar 
-          categories={categories}
-        />
+        <div className="flex justify-between gap-5">
+          <SignedIn>
+              <UserButton />
+          </SignedIn>
+
+          <MobileNavbar 
+            categories={categories}
+          />
+        </div>
     </nav>
   )
 }
