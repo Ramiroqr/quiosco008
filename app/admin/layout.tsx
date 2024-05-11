@@ -13,7 +13,7 @@ export default async function AdminLayout({
                     <AdminSidebar />
                 </aside>
 
-                <main className="md:flex-1 md:h-screen md:overflow-y-scroll bg-gray-100 p-5">
+                <main className="md:flex-1 md:h-screen md:overflow-y-scroll bg-gray-200 p-5">
                     {children}
                 </main>
             </div>

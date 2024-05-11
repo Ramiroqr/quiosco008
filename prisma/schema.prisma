@@ -37,7 +37,7 @@ model Order {
   date DateTime @default(now())
   status Boolean @default(false)
   orderReadyAt DateTime?
-  orderProucts OrderProducts[]
+  orderProducts OrderProducts[]
 }
 
 model OrderProducts {
