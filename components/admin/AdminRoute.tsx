@@ -20,7 +20,7 @@ export default function AdminRoute({link}: AdminRouteProps) {
 
   return (
     <Link
-        className={`${isActive ? 'bg-amber-500' : ''} font-bold text-lg border-t border-gray-200 p-3 last-of-type:border-b flex gap-3`}
+        className={`${isActive ? 'bg-amber-500' : ''} font-semibold text-lg border-t border-gray-200 p-3 last-of-type:border-b flex gap-3`}
         href={link.url}
         target={link.blank ? '_blank' : ''}
     >
